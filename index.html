@@ -7,23 +7,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         :root {
-            --primary-bg: #f7f7f7; /* Light Gray */
-            --secondary-bg: #eaeaea; /* Slightly Darker Gray */
-            --text-color: #333333; /* Dark Gray */
-            --accent-color: #2c3e50; /* Navy Blue */
-            --hover-color: #1a2a38; /* Darker Navy */
+            --primary-bg: #f7f7f7;
+            --secondary-bg: #eaeaea;
+            --text-color: #333333;
+            --accent-color: #2c3e50;
+            --hover-color: #1a2a38;
         }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--primary-bg);
         }
+
         header {
             background: var(--secondary-bg);
             color: var(--text-color);
@@ -32,7 +35,9 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -41,32 +46,62 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-color);
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
         }
+
         nav a {
             color: var(--text-color);
             text-decoration: none;
             padding: 0.5rem 1rem;
             transition: color 0.3s ease;
+            position: relative;
         }
+
         nav a:hover {
             color: var(--accent-color);
         }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 80%;
+            left: 10%;
+        }
+
         section {
             padding: 6rem 2rem;
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
+
         #home {
             background-color: var(--secondary-bg);
             height: 100vh;
@@ -75,33 +110,46 @@
             justify-content: center;
             text-align: center;
         }
+
         .home-content {
             max-width: 700px;
+            animation: fadeIn 1s ease-out;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h1 {
             font-size: 3rem;
             margin-bottom: 0.5rem;
             color: var(--accent-color);
         }
+
         h2 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--accent-color);
         }
+
         p {
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
+
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
         }
+
         .skill-list {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
         }
+
         .skill {
             background: var(--secondary-bg);
             color: var(--text-color);
@@ -109,30 +157,117 @@
             border-radius: 5px;
             transition: transform 0.3s ease, background-color 0.3s ease;
             border: 1px solid var(--accent-color);
+            cursor: pointer;
         }
+
         .skill:hover {
             transform: translateY(-3px);
             background-color: var(--accent-color);
             color: var(--primary-bg);
         }
+
+        .skill.animate {
+            animation: skillPop 0.5s ease-out;
+        }
+
+        @keyframes skillPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         .education-item {
             margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            background: var(--secondary-bg);
         }
+
+        .education-item:hover {
+            transform: translateX(10px);
+        }
+
         .education-item h3 {
             color: var(--accent-color);
             margin-bottom: 0.5rem;
         }
+
         ul.contact-list {
             list-style: none;
             padding-left: 0;
             text-align: center;
         }
+
         ul.contact-list li {
             margin-bottom: 1rem;
             font-size: 1.2rem;
+            transition: transform 0.3s ease;
         }
+
+        ul.contact-list li:hover {
+            transform: translateX(10px);
+        }
+
         ul.contact-list i {
             margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            background: var(--hover-color);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .nav-active {
+            color: var(--accent-color) !important;
+            font-weight: bold;
+        }
+
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Profile picture styling */
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -155,9 +290,9 @@
     <section id="home">
         <div class="container">
             <div class="home-content">
-                <img src="ATIP.jpg" 
+                <img src="/api/placeholder/200/200" 
                     alt="Profile Picture" 
-                    style="width: 200px; height: auto; border-radius: 50%; margin-bottom: 20px;">
+                    class="profile-pic">
                 <h1>Welcome to My Portfolio</h1>
                 <p>Hi, I'm Atip Infa-udom, a Computer Engineering student specializing in Calculus and Mathematics.</p>
             </div>
@@ -180,14 +315,10 @@
     <section id="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-
-            <!-- High School Education -->
             <div class="education-item">
                 <h3>High School Major: Science and Mathematics</h3>
                 <p>Sarasas Witaed Suksa School - Graduated</p>
             </div>
-
-            <!-- University Education -->
             <div class="education-item">
                 <h3>Bachelor of Engineering (Computer Engineering)</h3>
                 <p>King Mongkut's University of Technology Thonburi - 1st Year Undergraduate</p>
@@ -221,6 +352,10 @@
         </div>
     </section>
 
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script>
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -232,9 +367,103 @@
             });
         });
 
-        // Refresh page when the logo is clicked
+        // Logo click handler
         document.getElementById('logo').addEventListener('click', function () {
-            location.reload();  // Reload the page
+            location.reload();
+        });
+
+        // Typing effect
+        function typeEffect() {
+            const text = "Hi, I'm Atip Infa-udom, a Computer Engineering student specializing in Calculus and Mathematics.";
+            const element = document.querySelector('.home-content p');
+            element.textContent = '';
+            element.classList.add('typing-effect');
+            
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                    element.classList.remove('typing-effect');
+                }
+            }, 50);
+        }
+
+        // Scroll to top functionality
+        const scrollButton = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        scrollButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('nav-active');
+                }
+            });
+        });
+
+        // Skill animations
+        const skills = document.querySelectorAll('.skill');
+        skills.forEach(skill => {
+            skill.addEventListener('mouseenter', () => {
+                skill.classList.add('animate');
+                setTimeout(() => {
+                    skill.classList.remove('animate');
+                }, 500);
+            });
+        });
+
+        // Section animations on scroll
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            typeEffect();
+            
+            // Set initial state for sections
+            document.querySelectorAll('section:not(#home)').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                observer.observe(section);
+            });
         });
     </script>
 </body>
