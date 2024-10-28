@@ -256,7 +256,6 @@
             50% { opacity: 0; }
         }
 
-        /* Profile picture styling */
         .profile-pic {
             width: 200px;
             height: 200px;
@@ -290,7 +289,7 @@
     <section id="home">
         <div class="container">
             <div class="home-content">
-                <img src="/api/placeholder/200/200" 
+                <img src="ATIP.jpg" 
                     alt="Profile Picture" 
                     class="profile-pic">
                 <h1>Welcome to My Portfolio</h1>
@@ -357,7 +356,7 @@
     </div>
 
     <script>
-        // Smooth scrolling
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -367,12 +366,10 @@
             });
         });
 
-        // Logo click handler
         document.getElementById('logo').addEventListener('click', function () {
             location.reload();
         });
 
-        // Typing effect
         function typeEffect() {
             const text = "Hi, I'm Atip Infa-udom, a Computer Engineering student specializing in Calculus and Mathematics.";
             const element = document.querySelector('.home-content p');
@@ -391,7 +388,6 @@
             }, 50);
         }
 
-        // Scroll to top functionality
         const scrollButton = document.querySelector('.scroll-top');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
@@ -408,7 +404,6 @@
             });
         });
 
-        // Active navigation highlighting
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav a');
 
@@ -429,7 +424,6 @@
             });
         });
 
-        // Skill animations
         const skills = document.querySelectorAll('.skill');
         skills.forEach(skill => {
             skill.addEventListener('mouseenter', () => {
@@ -440,7 +434,6 @@
             });
         });
 
-        // Section animations on scroll
         const observerOptions = {
             threshold: 0.2
         };
@@ -454,11 +447,9 @@
             });
         }, observerOptions);
 
-        // Initialize animations
         document.addEventListener('DOMContentLoaded', () => {
             typeEffect();
             
-            // Set initial state for sections
             document.querySelectorAll('section:not(#home)').forEach(section => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(20px)';
