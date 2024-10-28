@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        :root {
+            --primary-bg: #f7f7f7; /* Light Gray */
+            --secondary-bg: #eaeaea; /* Slightly Darker Gray */
+            --text-color: #333333; /* Dark Gray */
+            --accent-color: #2c3e50; /* Navy Blue */
+            --hover-color: #1a2a38; /* Darker Navy */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--primary-bg);
+        }
+        header {
+            background: var(--secondary-bg);
+            color: var(--text-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        section {
+            padding: 6rem 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #home {
+            background-color: var(--secondary-bg);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .home-content {
+            max-width: 700px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .skill {
+            background: var(--secondary-bg);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 1px solid var(--accent-color);
+        }
+        .skill:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+        }
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        .education-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        ul.contact-list {
+            list-style: none;
+            padding-left: 0;
+            text-align: center;
+        }
+        ul.contact-list li {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        ul.contact-list i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo" id="logo">Atip Infa-udom</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="home-content">
+                <img src="https://media.discordapp.net/attachments/705194566881509460/1295023218469634109/1726322360451.jpg?ex=670d23db&is=670bd25b&hm=77ac5b891be5a179cf8c3e23f21e88d51dd4b4f7428c075bda1081b472b0a2a3&=&format=webp&width=503&height=671" 
+                    alt="Profile Picture" 
+                    style="width: 200px; height: auto; border-radius: 50%; margin-bottom: 20px;">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Hi, I'm Atip Infa-udom, a Computer Engineering student specializing in Calculus and Mathematics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>I am a passionate Computer Engineering student with 3 months of experience at KMUTT.</p>
+            <p>Here are some highlights about my background:</p>
+            <ul>
+                <li>Specialize in Calculus with a strong focus on Mathematics</li>
+                <li>Maintaining an ongoing pursuit of learning and self-improvement</li>
+                <li>Aspiring to be proficient in both Engineering and Mathematics</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+
+            <!-- High School Education -->
+            <div class="education-item">
+                <h3>High School Major: Science and Mathematics</h3>
+                <p>Sarasas Witaed Suksa School - Graduated</p>
+            </div>
+
+            <!-- University Education -->
+            <div class="education-item">
+                <h3>Bachelor of Engineering (Computer Engineering)</h3>
+                <p>King Mongkut's University of Technology Thonburi - 1st Year Undergraduate</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <p>Here are some of the technical skills I have developed:</p>
+            <div class="skill-list">
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <ul class="contact-list">
+                <li><i class="fab fa-line"></i> Line: atiptooop</li>
+                <li><i class="fab fa-facebook"></i> Facebook: Atip Infa-udom</li>
+                <li><i class="fas fa-phone"></i> Phone: 0970623425</li>
+                <li><i class="fas fa-envelope"></i> Email: theatip99@gmail.com</li>
+                <li><i class="fab fa-instagram"></i> Instagram: at_tip</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Refresh page when the logo is clicked
+        document.getElementById('logo').addEventListener('click', function () {
+            location.reload();  // Reload the page
+        });
+    </script>
+</body>
+</html>
